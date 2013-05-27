@@ -15,7 +15,7 @@ efi_main(EFI_HANDLE handler, EFI_SYSTEM_TABLE *tab_system)
 	status = uefi_call_wrapper(loader->GetMemoryMap, 5, &size_of_MeMemMap, MemMap, &key_of_map, &size_of_description, &ver_of_desription);
 	if(status != EFI_BUFFER_TOO_SMALL)
 	{
-		Print (L"Don't memory map\n");
+		Print (L"Don't memory map\r\n");
 	}
 	else
 	{
@@ -28,7 +28,7 @@ efi_main(EFI_HANDLE handler, EFI_SYSTEM_TABLE *tab_system)
 		status = uefi_call_wrapper(loader->GetMemoryMap, 5, &size_of_MeMemMap, MemMap, &key_of_map, &size_of_description, &ver_of_desription);  
 		if(status != EFI_SUCCESS)
 		{
-			Print(L"Don't get memory map\n");
+			Print(L"Don't get memory map\r\n");
 			return EFI_SUCCESS;
 		}
 		N = size_of_MeMemMap/sizeof(EFI_MEMORY_DESCRIPTOR);
